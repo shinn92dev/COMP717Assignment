@@ -15,5 +15,4 @@ fun CADPage(currency: Map<*, *>) {
         CurrencyHeader("CAD", "Canadian Dollar", R.drawable.cad)
         CurrencyCardLazyColumn(currency, "cad")
     }
-
 }

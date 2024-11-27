@@ -15,5 +15,4 @@ fun KRWPage(currency: Map<*, *>) {
         CurrencyHeader("KRW", "Korean Won", R.drawable.krw, "1000")
         CurrencyCardLazyColumn(currency, "krw")
     }
-
 }

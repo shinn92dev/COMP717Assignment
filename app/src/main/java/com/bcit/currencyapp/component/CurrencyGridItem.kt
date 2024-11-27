@@ -68,9 +68,7 @@ fun CurrencyGridItem(currencyCode: String, currencyName: String) {
                     color = Color.Black
                 ),
                 textAlign = TextAlign.Center
-
             )
         }
-
     }
 }

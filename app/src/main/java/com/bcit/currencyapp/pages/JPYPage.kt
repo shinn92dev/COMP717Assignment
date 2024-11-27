@@ -15,5 +15,4 @@ fun JPYPage(currency: Map<*, *>) {
         CurrencyHeader("JPY", "Japanese Yen", R.drawable.jpy, "100")
         CurrencyCardLazyColumn(currency, "jpy")
     }
-
 }

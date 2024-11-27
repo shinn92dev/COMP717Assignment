@@ -47,7 +47,6 @@ fun CurrencyCard(key: String, value: Any?, symbol: String, baseCurrency: String)
                 .padding(vertical = 5.dp)
                 .height(80.dp),
             verticalAlignment = Alignment.CenterVertically,
-//            horizontalArrangement = Arrangement.SpaceEvenly
         ) {
 
             Image(

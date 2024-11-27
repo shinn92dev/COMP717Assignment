@@ -15,5 +15,4 @@ fun EURPage(currency: Map<*, *>) {
         CurrencyHeader("EUR", "Euro", R.drawable.eur)
         CurrencyCardLazyColumn(currency, "eur")
     }
-
 }

@@ -28,7 +28,7 @@ fun BottomBar(navController: NavController) {
             .fillMaxWidth()
             .height(70.dp)
             .background(Color(0xFFF2F2F2))
-            .padding(vertical = 7.dp),
+            .padding(top = 12.dp, bottom = 20.dp),
         horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -41,7 +41,6 @@ fun BottomBar(navController: NavController) {
                     color = Color(0xFF6200EA).copy(alpha = 0.5f),
                     shape = CircleShape
                 )
-
         ) {
             Image(
                 painter = painterResource(id = R.drawable.cad_round),
@@ -58,7 +57,6 @@ fun BottomBar(navController: NavController) {
                     color = Color(0xFF6200EA).copy(alpha = 0.5f),
                     shape = CircleShape
                 )
-
         ) {
             Image(
                 painter = painterResource(id = R.drawable.usd_round),
@@ -75,7 +73,6 @@ fun BottomBar(navController: NavController) {
                     color = Color(0xFF6200EA).copy(alpha = 0.5f),
                     shape = CircleShape
                 )
-
         ) {
             Image(
                 painter = painterResource(id = R.drawable.krw_round),
@@ -92,7 +89,6 @@ fun BottomBar(navController: NavController) {
                     color = Color(0xFF6200EA).copy(alpha = 0.5f),
                     shape = CircleShape
                 )
-
         ) {
             Image(
                 painter = painterResource(id = R.drawable.jpy_round),
@@ -109,7 +105,6 @@ fun BottomBar(navController: NavController) {
                     color = Color(0xFF6200EA).copy(alpha = 0.5f),
                     shape = CircleShape
                 )
-
         ) {
             Image(
                 painter = painterResource(id = R.drawable.eur_round),

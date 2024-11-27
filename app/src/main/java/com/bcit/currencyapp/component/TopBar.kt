@@ -54,7 +54,7 @@ fun TopBar(navController: NavController) {
                 imageVector = Icons.Default.Info,
                 contentDescription = "About Us",
                 tint = Color.White,
-                modifier = Modifier.size(35.dp)
+                modifier = Modifier.size(30.dp)
             )
         }
     }
