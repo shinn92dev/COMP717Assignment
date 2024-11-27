@@ -5,14 +5,15 @@ import io.ktor.client.request.*
 
 class CurrencyRepository {
     private val client = HttpClientInstance.client
-    private val baseUrl = "https://latest.currency-api.pages.dev"
+    private val baseUrl = "https://latest.currency-api.pages.dev/v1/currencies"
 
-    suspend fun getCurrencyData(currency: String): CurrencyData? {
-        Log.d("URL", "$baseUrl/v1/currencies/$currency.json")
+    suspend fun getCurrencyData(currency: String): Map<String, Any>? {
         return try {
-            client.get("$baseUrl/v1/currencies/$currency.json").body()
+            val response: Map<String, Any> = client.get("$baseUrl/$currency.json").body()
+            Log.d("CurrencyRepository", "Fetched data for $currency: $response")
+            response
         } catch (e: Exception) {
-            e.printStackTrace()
+            Log.e("CurrencyRepository", "Failed to fetch data for $currency", e)
             null
         }
     }

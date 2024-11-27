@@ -43,6 +43,8 @@ dependencies {
     // Coil
     implementation("io.coil-kt.coil3:coil-compose:3.0.3")
     implementation("io.coil-kt.coil3:coil-network-okhttp:3.0.3")
+    implementation("io.coil-kt.coil3:coil-svg:3.0.3")
+
     // API related
     implementation("io.ktor:ktor-client-android:3.0.1")
     implementation("io.ktor:ktor-client-content-negotiation:3.0.1")

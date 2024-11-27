@@ -1,6 +1,5 @@
 package com.bcit.currencyapp
 
-import android.util.Log
 import com.bcit.currencyapp.api.CurrencyViewModel
 import androidx.activity.ComponentActivity
 import androidx.compose.material3.Scaffold
@@ -16,42 +15,73 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.compose.composable
+import com.bcit.currencyapp.component.TopBar
+import com.bcit.currencyapp.pages.*
 
 @Composable
 fun CurrencyApp() {
     val navController = rememberNavController()
     val activity = LocalContext.current as ComponentActivity
-    val viewModel = ViewModelProvider(activity).get(CurrencyViewModel::class.java)
+    val viewModel = ViewModelProvider(activity)[CurrencyViewModel::class.java]
     val currencyData by viewModel.currencyData.collectAsState()
 
     LaunchedEffect(Unit) {
-        viewModel.fetchCurrencyData("eur")
+        viewModel.fetchAllCurrencyData()
     }
-    val startDestination = if (currencyData == null) "loading" else "home"
-    Log.d("HEREHEHERE", "$currencyData")
+    val cad = currencyData?.cad?.get("cad") as? Map<*, *>
+    val usd = currencyData?.usd?.get("usd") as? Map<*, *>
+    val eur = currencyData?.eur?.get("eur") as? Map<*, *>
+    val krw = currencyData?.krw?.get("krw") as? Map<*, *>
+    val jpy = currencyData?.jpy?.get("jpy") as? Map<*, *>
+
+    val startDestination = if (currencyData == null) "loading" else "cad"
 
     Scaffold(
-        bottomBar = { BottomBar(navController)}
+        topBar = { TopBar(navController)},
+        bottomBar = { BottomBar(navController)},
     ) { padding ->
         NavHost(
             navController = navController,
             startDestination = startDestination,
             modifier = Modifier.padding(padding)
         ) {
-            composable("home") {
-                Home(navController)
+            composable("cad") {
+                if (cad != null) {
+                    CAD(cad)
+                }
+            }
+            composable("usd") {
+                if (usd != null) {
+                    USD(usd)
+                }
+            }
+            composable("krw") {
+                if (krw != null) {
+                    KRW(krw)
+                }
+            }
+            composable("jpy") {
+                if (jpy != null) {
+                    JPY(jpy)
+                }
+            }
+            composable("eur") {
+                if (eur != null) {
+                    EUR(eur)
+                }
             }
             composable("loading") {
-                Loading(navController)
+                Loading()
             }
-            composable("favorite") {
-                Favorite(navController)
+            composable("about") {
+                About()
             }
+
         }
     }
     LaunchedEffect(currencyData) {
         if (currencyData != null) {
-            navController.navigate("home") {
+            navController.navigate("cad") {
                 popUpTo("loading") { inclusive = true }
             }
         }
