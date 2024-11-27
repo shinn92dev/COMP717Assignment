@@ -1,7 +1,5 @@
 package com.bcit.currencyapp.pages
 
-import android.annotation.SuppressLint
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -11,29 +9,27 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.bcit.currencyapp.R
+import com.bcit.currencyapp.component.BaseCurrencyItem
+import com.bcit.currencyapp.component.CurrencyGridItem
 
 @Composable
-fun About() {
+fun AboutPage() {
     val majorCurrencies = mapOf(
-        "usd" to "United States Dollar",
-        "eur" to "Euro",
-        "jpy" to "Japanese Yen",
-        "gbp" to "British Pound Sterling",
         "cad" to "Canadian Dollar",
+        "usd" to "United States Dollar",
+        "krw" to "South Korean Won",
+        "jpy" to "Japanese Yen",
+        "eur" to "Euro",
+        "gbp" to "British Pound Sterling",
         "aud" to "Australian Dollar",
         "cny" to "Chinese Yuan",
         "chf" to "Swiss Franc",
         "hkd" to "Hong Kong Dollar",
-        "krw" to "South Korean Won",
         "inr" to "Indian Rupee",
         "sgd" to "Singapore Dollar",
         "brl" to "Brazilian Real",
@@ -119,82 +115,5 @@ fun About() {
                 CurrencyGridItem(currencyCode, majorCurrencies[currencyCode] ?: "")
             }
         }
-    }
-}
-
-@Composable
-fun BaseCurrencyItem(flagResId: Int, currencyCode: String, currencyName: String) {
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Image(
-            painter = painterResource(id = flagResId),
-            contentDescription = "$currencyCode flag",
-            modifier = Modifier
-                .size(32.dp)
-                .aspectRatio(1f),
-            contentScale = ContentScale.Fit
-        )
-        Spacer(modifier = Modifier.width(8.dp))
-        Text(
-            text = "$currencyCode ($currencyName)",
-            style = TextStyle(
-                fontSize = 16.sp,
-                fontWeight = FontWeight.Normal,
-                color = Color.Black
-            )
-        )
-    }
-}
-
-@SuppressLint("DiscouragedApi")
-@Composable
-fun CurrencyGridItem(currencyCode: String, currencyName: String) {
-    val resourceName =
-        if (currencyCode.lowercase() == "try") "turkish_lira" else currencyCode.lowercase()
-    val resourceId = LocalContext.current.resources.getIdentifier(
-        resourceName,
-        "drawable",
-        LocalContext.current.packageName
-    )
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.padding(4.dp)
-    ) {
-        Image(
-            painter = painterResource(id = resourceId),
-            contentDescription = "$currencyCode flag",
-            modifier = Modifier
-                .size(48.dp)
-                .aspectRatio(1f),
-            contentScale = ContentScale.Fit
-        )
-        Spacer(modifier = Modifier.height(4.dp))
-        Column(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
-        ) {
-            Text(
-                text = currencyCode.uppercase(),
-                style = TextStyle(
-                    fontSize = 12.sp,
-                    fontWeight = FontWeight.Normal,
-                    color = Color.Black
-                ),
-            )
-            Text(
-                text = currencyName,
-                style = TextStyle(
-                    fontSize = 7.sp,
-                    fontWeight = FontWeight.Normal,
-                    color = Color.Black
-                ),
-                textAlign = TextAlign.Center
-
-            )
-        }
-
     }
 }

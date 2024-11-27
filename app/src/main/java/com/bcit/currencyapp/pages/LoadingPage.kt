@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun Loading() {
+fun LoadingPage() {
     Column(
         modifier = Modifier
             .fillMaxSize()

@@ -10,10 +10,10 @@ import com.bcit.currencyapp.component.CurrencyCardLazyColumn
 import com.bcit.currencyapp.component.CurrencyHeader
 
 @Composable
-fun JPY(currency: Map<*, *>) {
+fun EURPage(currency: Map<*, *>) {
     Column(modifier = Modifier.padding(vertical = 5.dp)) {
-        CurrencyHeader("JPY", "Japanese Yen", R.drawable.jpy, "100")
-        CurrencyCardLazyColumn(currency, "jpy")
+        CurrencyHeader("EUR", "Euro", R.drawable.eur)
+        CurrencyCardLazyColumn(currency, "eur")
     }
 
 }

@@ -47,34 +47,34 @@ fun CurrencyApp() {
         ) {
             composable("cad") {
                 if (cad != null) {
-                    CAD(cad)
+                    CADPage(cad)
                 }
             }
             composable("usd") {
                 if (usd != null) {
-                    USD(usd)
+                    USDPage(usd)
                 }
             }
             composable("krw") {
                 if (krw != null) {
-                    KRW(krw)
+                    KRWPage(krw)
                 }
             }
             composable("jpy") {
                 if (jpy != null) {
-                    JPY(jpy)
+                    JPYPage(jpy)
                 }
             }
             composable("eur") {
                 if (eur != null) {
-                    EUR(eur)
+                    EURPage(eur)
                 }
             }
             composable("loading") {
-                Loading()
+                LoadingPage()
             }
             composable("about") {
-                About()
+                AboutPage()
             }
 
         }
