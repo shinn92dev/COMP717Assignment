@@ -29,19 +29,22 @@ fun TopBar(navController: NavController) {
             .padding(start = 16.dp, end = 16.dp, top = 10.dp, bottom = 5.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Spacer(modifier = Modifier.weight(1f))
-
+        IconButton(
+            onClick = { navController.navigate("cad") },
+            modifier = Modifier.weight(1f).padding(end = 10.dp)
+        ) {
+            Text("\uD83D\uDCB0", fontSize = 25.sp)
+        }
         Text(
             text = "ExchangeMate",
             style = TextStyle(
-                fontSize = 24.sp,
+                fontSize = 25.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color.White
             ),
             modifier = Modifier
                 .weight(6f)
-                .clickable { navController.navigate("cad") },
-            maxLines = 1
+                .clickable { navController.navigate("cad") }
         )
         IconButton(
             onClick = { navController.navigate("about") },
