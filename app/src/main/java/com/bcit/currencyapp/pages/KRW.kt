@@ -19,28 +19,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.bcit.currencyapp.R
 import com.bcit.currencyapp.component.CurrencyCardLazyColumn
+import com.bcit.currencyapp.component.CurrencyHeader
 
 @Composable
 fun KRW(currency: Map<*, *>) {
     Column(modifier = Modifier.padding(vertical = 5.dp)) {
-        Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-            Column(
-                modifier = Modifier.fillMaxWidth().padding(vertical = 10.dp),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.krw),
-                    contentDescription = "Korea flag",
-                    modifier = Modifier
-                        .size(50.dp)
-                        .aspectRatio(1f),
-                    contentScale = ContentScale.Fit
-                )
-                Text("1000 Korean Won = ", fontSize = 25.sp, fontWeight = FontWeight.Bold)
-            }
-
-        }
+        CurrencyHeader("KRW", "Korean Won", R.drawable.krw, "1000")
         CurrencyCardLazyColumn(currency, "krw")
     }
 
